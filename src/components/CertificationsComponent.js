@@ -11,22 +11,22 @@ import { faPalette } from "@fortawesome/free-solid-svg-icons";
 const certifications = [
 	{
 		title: "Infosys Springboard - UI/UX",
-		date: "June 2023",
+		date: "June 2025",
 		icon: faPalette,
 	},
 	{
 		title: "Infosys Springboard - HTML",
-		date: "July 2023",
+		date: "July 2025",
 		icon: faHtml5,
 	},
 	{
 		title: "Infosys Springboard - JavaScript",
-		date: "August 2023",
+		date: "August 2025",
 		icon: faJsSquare,
 	},
 	{
 		title: "Infosys Springboard - Bootstrap",
-		date: "September 2023",
+		date: "September 2025",
 		icon: faBootstrap,
 	},
 ];

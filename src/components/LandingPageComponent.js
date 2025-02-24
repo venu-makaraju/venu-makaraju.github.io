@@ -7,7 +7,7 @@ import {
 	useTheme,
 } from "@mui/material";
 import { Link } from "react-scroll";
-import resume from "../assets/resume";
+import resume from "../assets/Venu_Makaraju_Resume.pdf";
 
 const LandingPageComponent = () => {
 	const theme = useTheme();
@@ -19,7 +19,7 @@ const LandingPageComponent = () => {
 	const handleDownload = () => {
 		const link = document.createElement("a");
 		link.href = resume;
-		link.download = "Resume.pdf";
+		link.download = "Venu_GopalaRaju_Makaraju_Resume.pdf";
 		link.click();
 	};
 
