@@ -61,7 +61,7 @@ const NavBarComponent = () => {
 						textDecoration: "none",
 					}}
 				>
-					User Name
+					Venu Gopala Raju Makaraju
 				</Typography>
 
 				{/* Desktop Navigation Links */}

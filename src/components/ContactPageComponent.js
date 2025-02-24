@@ -50,7 +50,7 @@ const ContactPageComponent = () => {
 							variant="h6"
 							sx={{ fontSize: { xs: "1rem", md: "2rem" } }}
 						>
-							kavyalakshmimakaraju@gmail.com
+							venumakaraju@gmail.com
 						</Typography>
 					</Box>
 					<Box sx={{ marginBottom: 3, display: "flex", alignItems: "center" }}>
@@ -63,7 +63,7 @@ const ContactPageComponent = () => {
 							variant="h6"
 							sx={{ fontSize: { xs: "1rem", md: "2rem" } }}
 						>
-							+91-8074570760
+							+91-8639191791
 						</Typography>
 					</Box>
 					<Box sx={{ display: "flex", alignItems: "center" }}>
@@ -75,7 +75,7 @@ const ContactPageComponent = () => {
 						<Typography
 							variant="h6"
 							component="a"
-							href="https://www.linkedin.com/in/neeharika-vemulapati"
+							href="https://www.linkedin.com/in/venu-makaraju-5b06ab342/"
 							target="_blank"
 							rel="noopener noreferrer"
 							sx={{
@@ -85,7 +85,7 @@ const ContactPageComponent = () => {
 								"&:hover": { textDecoration: "underline" },
 							}}
 						>
-							https://www.linkedin.com/in/kavyalakshmi-makaraju-71ba98214/
+							https://www.linkedin.com/in/venu-makaraju-5b06ab342/
 						</Typography>
 					</Box>
 				</Grid>

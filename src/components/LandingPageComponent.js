@@ -13,7 +13,7 @@ const LandingPageComponent = () => {
 	const theme = useTheme();
 	const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
-	const firstName = "Kavya";
+	const firstName = "Venu Gopala Raju";
 	const lastName = "Makaraju";
 
 	const handleDownload = () => {
