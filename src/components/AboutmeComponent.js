@@ -6,10 +6,10 @@ import { faGraduationCap } from "@fortawesome/free-solid-svg-icons";
 // Example data for "About Me" and "Education"
 const educationDetails = [
 	{
-		institution: " Velagapudi Ramakrishna Siddhartha Engineering College",
-		degree: "Department of Electronics and Communication Engineering",
-		location: "Kanuru, Vijayawada, India",
-		date: "Jul 2024",
+		institution: "NRI Institute of Technology",
+		degree: "Department of Civil Engineering",
+		location: "Agiripalli, Vijayawada, India",
+		date: "Jul 2022",
 		icon: faGraduationCap,
 	},
 ];
@@ -41,13 +41,13 @@ const AboutMeComponent = () => {
 						About Me
 					</Typography>
 					<Typography variant="body1" paragraph sx={{ fontSize: "18px" }}>
-						I am a passionate and detail-oriented engineer with a strong academic background in Electronics and Communication Engineering from Velagapudi Ramakrishna Siddhartha Engineering College, Kanuru. My academic journey has been complemented by outstanding achievements, including a CGPA of 8.82 during my undergraduate studies.
+						I am a creative and driven software engineer dedicated to building digital solutions that transform everyday challenges into intuitive experiences. I bring clarity and innovation to every project.
 					</Typography>
 					<Typography variant="body1" paragraph sx={{ fontSize: "18px" }}>
-						Throughout my education, I have honed my technical skills through hands-on internships in diverse domains such as web development, data analytics, and embedded systems. My work includes implementing Machine Learning-based transcription systems, developing dynamic web pages, and integrating Controller Area Network protocols for reliable device communication.
+						My focus is on developing applications that are not only visually appealing but also highly functional. I value clean, efficient code and scalable design in all my work.
 					</Typography>
 					<Typography variant="body1" paragraph sx={{ fontSize: "18px" }}>
-						With a keen interest in technology and innovation, I aim to bridge theoretical concepts with practical applications, creating solutions that make a meaningful impact. My experiences have instilled in me a problem-solving mindset, a collaborative spirit, and a commitment to continuous learning.
+						I believe in continuous learning and collaboration, striving to grow professionally while delivering meaningful impact. I am committed to advancing technology with purpose and precision.
 					</Typography>
 				</Grid>
 

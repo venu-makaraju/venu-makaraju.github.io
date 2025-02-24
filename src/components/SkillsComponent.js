@@ -2,124 +2,67 @@ import React from "react";
 import {
 	Box,
 	Typography,
-	// Select,
-	// MenuItem,
 	Chip,
-	// FormControl,
-	// InputLabel,
 } from "@mui/material";
+
+// Font Awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-	faJava,
-	faPython,
-	faJsSquare,
-	// faHtml5,
-	// faCss3Alt,
-	// faReact,
-	// faNodeJs,
-	// faAws,
-	// faDocker,
-	// faGitAlt,
-	// faJira,
-	// faBitbucket,
-	// faAngular,
-	faServicestack,
-	faWindows,
+	faReact,
+	faNodeJs,
+	faAws,
+	faGitAlt,
+	faAndroid,
+	faFigma,
+	// If you have a paid license or know the specific icons for others, import them here
 } from "@fortawesome/free-brands-svg-icons";
+
 import {
-	faCogs,
-	faCloud,
-	faProjectDiagram,
-	// faShieldAlt,
-	faCubes,
-	faFlask,
-	// faCheck,
 	faCircle,
-	// faVial,
 	faLaptopCode,
+	faCode,
 } from "@fortawesome/free-solid-svg-icons";
 
-// Mapping skills to Font Awesome icons
+// 1. Map each skill to the appropriate icon. For any skill without an exact match,
+//    you can fallback to faCircle or another icon you prefer.
 const skillIcons = {
-	C: faCogs,
-	"C#": faCogs,
-	Python: faPython,
-	JavaScript: faJsSquare,
-	SQL: faServicestack,
-	MongoDB: faCloud,
-	TensorFlow: faCubes,
-	PyTorch: faCubes,
-	"Scikit-learn": faFlask,
-	Keras: faFlask,
-	Numpy: faCogs,
-	Pandas: faCogs,
-	Django: faCogs,
-	FastAPI: faCogs,
-	ASPNET: faCloud,
-	D365: faCloud,
-	"Machine Learning": faProjectDiagram,
-	"Web Development": faLaptopCode,
-	"Data Structures & Algorithms": faProjectDiagram,
-	MySQL: faCloud,
-	"Basics of Java": faJava,
-	"Microsoft D365 Certification": faWindows,
-	"Programming Essentials of Python": faPython,
+	"React": faReact,
+	"React Native": faReact,        // or keep the same React icon
+	"Node.js": faNodeJs,
+	"Express": faNodeJs,            // no separate Express icon; reuse faNodeJs or something else
+	"AWS": faAws,
+	"Git": faGitAlt,
+	"GitHub": faGitAlt,             // same icon for GitHub or find an alternative
+	"Postman": faLaptopCode,            // fallback icon; Font Awesome doesn't have a free Postman icon
+	"Android Studio": faAndroid,    // for Android platform
+	"Figma": faFigma,               // available in free brand icons
+	"Canva": faCircle,              // fallback icon; no free brand icon for Canva
+	"VS Code": faCode,
 };
 
-
-
+// 2. Adjust the data structure to group your skills into relevant categories.
 const skillsData = {
 	skills: [
 		{
 			id: 1,
-			category: "Programming Languages & Technologies",
-			items: ["C", "C#", "Python", "JavaScript", "SQL", "MongoDB"],
+			category: "Frontend & Design",
+			items: ["React", "React Native", "Figma", "Canva"],
 		},
 		{
 			id: 2,
-			category: "Frameworks & Libraries",
-			items: [
-				"TensorFlow",
-				"PyTorch",
-				"Scikit-learn",
-				"Keras",
-				"Numpy",
-				"Pandas",
-				"Django",
-				"FastAPI",
-			],
+			category: "Backend & Server",
+			items: ["Node.js", "Express"],
 		},
 		{
 			id: 3,
-			category: "Cloud & Databases",
-			items: ["MySQL", "MongoDB"],
-		},
-		{
-			id: 4,
-			category: "Technologies & Interests",
-			items: [
-				"ASP.NET",
-				"D365",
-				"Machine Learning",
-				"Web Development",
-				"Data Structures & Algorithms",
-			],
-		},
-		{
-			id: 5,
-			category: "Certifications",
-			items: [
-				"Microsoft D365 Certification",
-				"Programming Essentials of Python",
-				"Basics of Java",
-			],
+			category: "Tools & Platforms",
+			items: ["AWS", "Git", "GitHub", "Postman", "Android Studio", "VS Code"],
 		},
 	],
 };
 
-
-
 const SkillsComponent = () => {
+	// Flatten all skill items from each category
 	const allSkills = skillsData.skills.flatMap((skill) => skill.items);
 
 	return (
@@ -179,38 +122,30 @@ const SkillsComponent = () => {
 							>
 								<FontAwesomeIcon
 									icon={skillIcons[item] || faCircle}
-									size="3x" // Larger size for the icon
+									size="3x"
 								/>
-								<Typography sx={{ textAlign: "center", fontSize: "20px" }}>
+								<Typography
+									sx={{ textAlign: "center", fontSize: "20px" }}
+								>
 									{item}
 								</Typography>
 							</Box>
 						}
 						variant="outlined"
-						// color={shouldColorSkill(item) ? "#3f51b5" : "default"}
-						color={"default"}
+						color="default"
 						sx={{
 							borderRadius: "8px",
-							minWidth: "120px", // Ensure consistent size for chips
-							minHeight: "120px", // To create space for the icon and text
+							minWidth: "120px",
+							minHeight: "120px",
 							display: "flex",
 							flexDirection: "column",
 							justifyContent: "center",
 							alignItems: "center",
 							backgroundColor: "transparent",
-							// backgroundColor: shouldColorSkill(item)
-							//   ? "#3f51b5"
-							//   : "transparent",
 							borderColor: "#124E66",
 							color: "#124E66",
-							// color: shouldColorSkill(item) ? "white" : "#3f51b5",
 							cursor: "pointer",
 							transition: "background-color 0.3s, color 0.3s",
-							// "&:hover": {
-							//   backgroundColor: shouldColorSkill(item)
-							//     ? "#3f51b5"
-							//     : "transparent",
-							// },
 						}}
 					/>
 				))}

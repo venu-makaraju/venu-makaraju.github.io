@@ -1,26 +1,33 @@
 import React from "react";
 import { Card, CardContent, Typography, Grid, Box } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faCloud, faMedal } from "@fortawesome/free-solid-svg-icons"; // Example FA icons
-import { faJava, faPython } from "@fortawesome/free-brands-svg-icons"; // AWS icon
-import { faWindows } from "@fortawesome/free-brands-svg-icons/faWindows";
+import {
+	faHtml5,
+	faJsSquare,
+	faBootstrap,
+} from "@fortawesome/free-brands-svg-icons";
+import { faPalette } from "@fortawesome/free-solid-svg-icons";
 
-// Example certifications array with FA icons
 const certifications = [
 	{
-		title: "Microsoft D365",
-		date: "Sep 2024",
-		icon: faWindows, // Use FA AWS icon
+		title: "Infosys Springboard - UI/UX",
+		date: "June 2023",
+		icon: faPalette,
 	},
 	{
-		title: "Programming Essentials of Python",
-		date: "Jul 2024",
-		icon: faPython, // Use check-circle icon for LambdaTest
+		title: "Infosys Springboard - HTML",
+		date: "July 2023",
+		icon: faHtml5,
 	},
 	{
-		title: "Basics of Java",
-		date: "Apr 2024",
-		icon: faJava, // Use cloud icon for AWS Academy
+		title: "Infosys Springboard - JavaScript",
+		date: "August 2023",
+		icon: faJsSquare,
+	},
+	{
+		title: "Infosys Springboard - Bootstrap",
+		date: "September 2023",
+		icon: faBootstrap,
 	},
 ];
 
@@ -44,20 +51,27 @@ const CertificationsComponent = () => {
 			>
 				My Certifications
 			</Typography>
+			{/* 
+        Use Grid with 'container' for layout and 'item' for each card. 
+        'xs={12} sm={6}' means:
+          - on extra-small screens (mobile): card is full width (12/12).
+          - on small screens and above: card is half width (6/12), 
+            resulting in two columns (2×2 for 4 cards).
+      */}
 			<Grid container spacing={3}>
 				{certifications.map((cert, index) => (
-					<Grid item xs={12} sm={6} md={4} key={index}>
+					<Grid item xs={12} sm={6} key={index}>
 						<Card
 							variant="outlined"
 							sx={{
 								display: "flex",
 								flexDirection: "column",
 								height: "100%",
-								border: "none", // Remove the border
-								borderRadius: "16px", // Add border radius
-								boxShadow: 3, // Add box shadow
+								border: "none",
+								borderRadius: "16px",
+								boxShadow: 3,
 								"&:hover": {
-									boxShadow: 6, // Increase box shadow on hover
+									boxShadow: 6,
 								},
 							}}
 						>
