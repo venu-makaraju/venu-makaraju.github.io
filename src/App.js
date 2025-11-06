@@ -14,21 +14,11 @@ function App() {
       <div id="landing">
         <LandingPageComponent />
       </div>
-      <div id="about">
-        <AboutMeComponent />
-      </div>
-      <div id="experience">
-        <ExperienceComponent />
-      </div>
-      <div id="skills">
-        <SkillsComponent />
-      </div>
-      <div id="certifications">
-        <CertificationsComponent />
-      </div>
-      <div id="contact">
-        <ContactPageComponent />
-      </div>
+      <AboutMeComponent />
+      <ExperienceComponent />
+      <SkillsComponent />
+      <CertificationsComponent />
+      <ContactPageComponent />
     </div>
   );
 }
