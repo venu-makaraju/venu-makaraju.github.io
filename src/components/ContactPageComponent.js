@@ -127,21 +127,22 @@ const ContactPageComponent = () => {
 			if (autoreplyTemplateId) {
 				console.log("Auto-reply template ID:", autoreplyTemplateId);
 				try {
-				  const replyResult = await emailjs.send(
-					serviceId,
-					autoreplyTemplateId,
-					{
-					  name: formValues.name,
-					  email: formValues.email,
-					  subject: formValues.subject,
-					},
-					publicKey
-				  );
+					const replyResult = await emailjs.send(
+						serviceId,
+						autoreplyTemplateId,
+						{
+							to_email: formValues.email,
+							reply_to: formValues.email,
+							subject: formValues.subject,
+						},
+						publicKey
+					);
+					console.log("Auto-reply sent:", replyResult.status, replyResult.text);
 				} catch (replyError) {
-				  console.error("Auto-reply email failed:", replyError);
+					console.error("Auto-reply email failed:", replyError);
 				}
-			  }
-			  
+			}
+			
 
 			setFeedback({
 				type: "success",
