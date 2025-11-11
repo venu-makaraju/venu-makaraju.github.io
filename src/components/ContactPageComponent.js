@@ -106,11 +106,6 @@ const ContactPageComponent = () => {
 			});
 			return;
 		}
-		console.log("Service ID:", serviceId);
-console.log("Template ID:", templateId);
-console.log("Auto-reply Template ID:", autoreplyTemplateId);
-console.log("Public Key:", publicKey);
-console.log("Form values:", formValues);
 
 
 		setIsSending(true);
@@ -142,7 +137,6 @@ console.log("Form values:", formValues);
 					},
 					publicKey
 				  );
-				  console.log("Auto-reply sent:", replyResult.status, replyResult.text);
 				} catch (replyError) {
 				  console.error("Auto-reply email failed:", replyError);
 				}
