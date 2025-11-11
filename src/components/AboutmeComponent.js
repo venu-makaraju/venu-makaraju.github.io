@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Box, Typography, Card, CardContent } from "@mui/material";
+import { Grid, Box, Typography, Card, CardContent, useTheme } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGraduationCap } from "@fortawesome/free-solid-svg-icons";
 
@@ -15,8 +15,17 @@ const educationDetails = [
 ];
 
 const AboutMeComponent = () => {
+	const theme = useTheme();
+
 	return (
-		<Box sx={{ padding: 4 }}>
+		<Box
+			sx={{
+				padding: 4,
+				backgroundColor: theme.palette.background.default,
+				color: theme.palette.text.primary,
+				transition: "background-color 0.3s ease, color 0.3s ease",
+			}}
+		>
 			<Grid
 				container
 				spacing={4}
@@ -33,7 +42,7 @@ const AboutMeComponent = () => {
 								display: "block",
 								width: "60px",
 								height: "3px",
-								backgroundColor: "#124E66",
+								backgroundColor: theme.palette.primary.main,
 								margin: "8px auto 0",
 							},
 						}}
@@ -62,7 +71,7 @@ const AboutMeComponent = () => {
 								display: "block",
 								width: "60px",
 								height: "3px",
-								backgroundColor: "#124E66",
+								backgroundColor: theme.palette.primary.main,
 								margin: "8px auto 0",
 							},
 						}}
@@ -79,9 +88,16 @@ const AboutMeComponent = () => {
 								display: "flex",
 								flexDirection: "column",
 								borderRadius: "16px",
-								boxShadow: 3,
+								backgroundColor: theme.palette.background.paper,
+								boxShadow:
+									theme.palette.mode === "dark"
+										? "0 20px 45px rgba(0, 0, 0, 0.45)"
+										: "0 20px 45px rgba(18, 78, 102, 0.15)",
 								"&:hover": {
-									boxShadow: 6,
+									boxShadow:
+										theme.palette.mode === "dark"
+											? "0 30px 65px rgba(0, 0, 0, 0.55)"
+											: "0 30px 65px rgba(18, 78, 102, 0.25)",
 								},
 							}}
 						>
@@ -89,7 +105,7 @@ const AboutMeComponent = () => {
 								<FontAwesomeIcon
 									icon={education.icon}
 									size="2x"
-									style={{ color: "#124E66" }}
+									style={{ color: theme.palette.primary.main }}
 								/>
 								<Typography variant="h6" sx={{ marginTop: 2 }}>
 									{education.degree}
@@ -108,6 +124,7 @@ const AboutMeComponent = () => {
 									sx={{
 										fontSize: { xs: "0.875rem", md: "1.1rem" }, // Default size on small screens, larger on desktop
 										marginTop: 0.5,
+										color: theme.palette.text.secondary,
 									}}
 								>
 									{education.location}
@@ -117,6 +134,7 @@ const AboutMeComponent = () => {
 									sx={{
 										fontSize: { xs: "0.875rem", md: "1.1rem" }, // Default size on small screens, larger on desktop
 										marginTop: 0.5,
+										color: theme.palette.text.secondary,
 									}}
 								>
 									{education.date}

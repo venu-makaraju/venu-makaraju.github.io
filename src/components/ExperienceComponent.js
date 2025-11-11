@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, Card, CardContent } from "@mui/material";
+import { Box, Typography, Card, CardContent, useTheme } from "@mui/material";
 
 const experienceData = [
 	{
@@ -39,14 +39,17 @@ const experienceData = [
 ];
 
 const ExperienceComponent = () => {
+	const theme = useTheme();
+
 	return (
 		<Box
 			sx={{
-				backgroundColor: "#212A31",
+				backgroundColor: theme.palette.background.default,
 				p: { xs: 1, sm: 4 },
-				color: "#fff",
+				color: theme.palette.text.primary,
 				minHeight: "100vh",
 				position: "relative",
+				transition: "background-color 0.3s ease, color 0.3s ease",
 			}}
 		>
 			<Typography
@@ -59,7 +62,7 @@ const ExperienceComponent = () => {
 						display: "block",
 						width: "60px",
 						height: "3px",
-						backgroundColor: "#D3D9D4",
+						backgroundColor: theme.palette.primary.main,
 						margin: "8px auto 0",
 					},
 				}}
@@ -76,7 +79,7 @@ const ExperienceComponent = () => {
 						top: 0,
 						bottom: 0,
 						width: "2px",
-						backgroundColor: "#aaa",
+						backgroundColor: theme.palette.divider,
 						zIndex: 1,
 					}}
 				/>
@@ -104,7 +107,7 @@ const ExperienceComponent = () => {
 											display: "block",
 											width: "60px",
 											height: "3px",
-											backgroundColor: "#D3D9D4",
+											backgroundColor: theme.palette.primary.main,
 											margin: "8px auto 0",
 										},
 									}}
@@ -136,8 +139,8 @@ const ExperienceComponent = () => {
 										width: 16,
 										height: 16,
 										borderRadius: "50%",
-										backgroundColor: "#333",
-										border: "2px solid #aaa",
+										backgroundColor: theme.palette.background.paper,
+										border: `2px solid ${theme.palette.primary.main}`,
 									}}
 								/>
 
@@ -145,10 +148,13 @@ const ExperienceComponent = () => {
 								<Card
 									sx={{
 										width: "80%",
-										backgroundColor: "#124E66",
-										color: "#fff",
+										backgroundColor: theme.palette.background.paper,
+										color: theme.palette.text.primary,
 										borderRadius: 2,
-										boxShadow: "0 4px 10px rgba(0, 0, 0, 0.3)",
+										boxShadow:
+											theme.palette.mode === "dark"
+												? "0 20px 45px rgba(0, 0, 0, 0.45)"
+												: "0 20px 45px rgba(18, 78, 102, 0.15)",
 										marginLeft: { xs: "12%", sm: "12%" },
 									}}
 								>
@@ -161,7 +167,9 @@ const ExperienceComponent = () => {
 										</Typography>
 										<Typography variant="body1">
 											{item.achievements.map((ach, idx) => (
-												<Box key={idx}>- {ach}</Box>
+												<Box key={idx} sx={{ color: theme.palette.text.secondary }}>
+													- {ach}
+												</Box>
 											))}
 										</Typography>
 									</CardContent>

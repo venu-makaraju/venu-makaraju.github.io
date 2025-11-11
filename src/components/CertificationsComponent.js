@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardContent, Typography, Grid, Box } from "@mui/material";
+import { Card, CardContent, Typography, Grid, Box, useTheme } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faHtml5,
@@ -32,8 +32,17 @@ const certifications = [
 ];
 
 const CertificationsComponent = () => {
+	const theme = useTheme();
+
 	return (
-		<Box sx={{ padding: 4 }}>
+		<Box
+			sx={{
+				padding: 4,
+				backgroundColor: theme.palette.background.default,
+				color: theme.palette.text.primary,
+				transition: "background-color 0.3s ease, color 0.3s ease",
+			}}
+		>
 			<Typography
 				variant="h4"
 				gutterBottom
@@ -44,7 +53,7 @@ const CertificationsComponent = () => {
 						display: "block",
 						width: "60px",
 						height: "3px",
-						backgroundColor: "#748D92",
+						backgroundColor: theme.palette.primary.main,
 						margin: "8px auto 0",
 					},
 				}}
@@ -69,9 +78,16 @@ const CertificationsComponent = () => {
 								height: "100%",
 								border: "none",
 								borderRadius: "16px",
-								boxShadow: 3,
+								backgroundColor: theme.palette.background.paper,
+								boxShadow:
+									theme.palette.mode === "dark"
+										? "0 20px 45px rgba(0, 0, 0, 0.45)"
+										: "0 20px 45px rgba(18, 78, 102, 0.15)",
 								"&:hover": {
-									boxShadow: 6,
+									boxShadow:
+										theme.palette.mode === "dark"
+											? "0 30px 65px rgba(0, 0, 0, 0.55)"
+											: "0 30px 65px rgba(18, 78, 102, 0.25)",
 								},
 							}}
 						>
@@ -79,12 +95,15 @@ const CertificationsComponent = () => {
 								<FontAwesomeIcon
 									icon={cert.icon}
 									size="3x"
-									style={{ color: "#124E66" }}
+									style={{ color: theme.palette.primary.main }}
 								/>
 								<Typography variant="h6" gutterBottom sx={{ marginTop: 2 }}>
 									{cert.title}
 								</Typography>
-								<Typography variant="body2" color="textSecondary">
+								<Typography
+									variant="body2"
+									sx={{ color: theme.palette.text.secondary }}
+								>
 									{cert.date}
 								</Typography>
 							</CardContent>

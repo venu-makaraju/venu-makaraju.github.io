@@ -1,9 +1,5 @@
 import React from "react";
-import {
-	Box,
-	Typography,
-	Chip,
-} from "@mui/material";
+import { Box, Typography, Chip, useTheme } from "@mui/material";
 
 // Font Awesome
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -62,6 +58,7 @@ const skillsData = {
 };
 
 const SkillsComponent = () => {
+	const theme = useTheme();
 	// Flatten all skill items from each category
 	const allSkills = skillsData.skills.flatMap((skill) => skill.items);
 
@@ -70,11 +67,12 @@ const SkillsComponent = () => {
 			sx={{
 				p: { xs: 2, sm: 4 },
 				textAlign: "left",
-				backgroundColor: "#efefef",
+				backgroundColor: theme.palette.background.default,
 				display: "flex",
 				flexDirection: "column",
 				alignItems: "center",
 				justifyContent: "center",
+				transition: "background-color 0.3s ease, color 0.3s ease",
 			}}
 		>
 			<Typography
@@ -88,7 +86,7 @@ const SkillsComponent = () => {
 						display: "block",
 						width: "60px",
 						height: "3px",
-						backgroundColor: "#748D92",
+						backgroundColor: theme.palette.primary.main,
 						margin: "8px auto 0",
 					},
 				}}
@@ -123,6 +121,7 @@ const SkillsComponent = () => {
 								<FontAwesomeIcon
 									icon={skillIcons[item] || faCircle}
 									size="3x"
+									color={theme.palette.primary.main}
 								/>
 								<Typography
 									sx={{ textAlign: "center", fontSize: "20px" }}
@@ -141,11 +140,22 @@ const SkillsComponent = () => {
 							flexDirection: "column",
 							justifyContent: "center",
 							alignItems: "center",
-							backgroundColor: "transparent",
-							borderColor: "#124E66",
-							color: "#124E66",
+							backgroundColor: theme.palette.background.paper,
+							borderColor: theme.palette.primary.main,
+							color: theme.palette.text.primary,
 							cursor: "pointer",
-							transition: "background-color 0.3s, color 0.3s",
+							transition: "transform 0.2s ease, box-shadow 0.3s ease",
+							boxShadow:
+								theme.palette.mode === "dark"
+									? "0 14px 25px rgba(0,0,0,0.35)"
+									: "0 12px 20px rgba(18, 78, 102, 0.12)",
+							"&:hover": {
+								transform: "translateY(-4px)",
+								boxShadow:
+									theme.palette.mode === "dark"
+										? "0 20px 40px rgba(0,0,0,0.45)"
+										: "0 18px 36px rgba(18,78,102,0.2)",
+							},
 						}}
 					/>
 				))}

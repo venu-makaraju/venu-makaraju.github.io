@@ -1,16 +1,18 @@
 import React from "react";
-import { Box, Grid, Typography, TextField, Button } from "@mui/material";
+import { Box, Grid, Typography, TextField, Button, useTheme } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 
 const ContactPageComponent = () => {
+	const theme = useTheme();
 	return (
 		<Box
 			sx={{
-				backgroundColor: "#212A31",
+				backgroundColor: theme.palette.background.paper,
 				padding: 4,
-				color: "#fff",
+				color: theme.palette.text.primary,
+				transition: "background-color 0.3s ease, color 0.3s ease",
 			}}
 		>
 			{/* Centered Title */}
@@ -22,14 +24,14 @@ const ContactPageComponent = () => {
 					fontWeight: "bold",
 					marginBottom: 4,
 					textTransform: "uppercase",
-					color: "#fff",
+					color: theme.palette.text.primary,
 					position: "relative",
 					"&::after": {
 						content: '""',
 						display: "block",
 						width: "60px",
 						height: "3px",
-						backgroundColor: "#fff",
+						backgroundColor: theme.palette.primary.main,
 						margin: "8px auto 0",
 					},
 				}}
@@ -44,11 +46,14 @@ const ContactPageComponent = () => {
 						<FontAwesomeIcon
 							icon={faEnvelope}
 							size="lg"
-							style={{ marginRight: 16, color: "#fff" }}
+							style={{ marginRight: 16, color: theme.palette.primary.main }}
 						/>
 						<Typography
 							variant="h6"
-							sx={{ fontSize: { xs: "1rem", md: "2rem" } }}
+							sx={{
+								fontSize: { xs: "1rem", md: "2rem" },
+								color: theme.palette.text.primary,
+							}}
 						>
 							venumakaraju@gmail.com
 						</Typography>
@@ -57,11 +62,14 @@ const ContactPageComponent = () => {
 						<FontAwesomeIcon
 							icon={faPhone}
 							size="lg"
-							style={{ marginRight: 16, color: "#fff" }}
+							style={{ marginRight: 16, color: theme.palette.primary.main }}
 						/>
 						<Typography
 							variant="h6"
-							sx={{ fontSize: { xs: "1rem", md: "2rem" } }}
+							sx={{
+								fontSize: { xs: "1rem", md: "2rem" },
+								color: theme.palette.text.primary,
+							}}
 						>
 							+91-8639191791
 						</Typography>
@@ -70,7 +78,7 @@ const ContactPageComponent = () => {
 						<FontAwesomeIcon
 							icon={faLinkedinIn}
 							size="lg"
-							style={{ marginRight: 16, color: "#fff" }}
+							style={{ marginRight: 16, color: theme.palette.primary.main }}
 						/>
 						<Typography
 							variant="h6"
@@ -80,7 +88,7 @@ const ContactPageComponent = () => {
 							rel="noopener noreferrer"
 							sx={{
 								textDecoration: "none",
-								color: "#fff",
+								color: theme.palette.text.primary,
 								fontSize: { xs: "1rem", md: "2rem" },
 								"&:hover": { textDecoration: "underline" },
 							}}
@@ -106,21 +114,23 @@ const ContactPageComponent = () => {
 							variant="outlined"
 							fullWidth
 							required
-							InputLabelProps={{ style: { color: "#fff" } }}
+							InputLabelProps={{
+								style: { color: theme.palette.text.secondary },
+							}}
 							sx={{
-								backgroundColor: "transparent",
-								border: "1px solid #fff",
+								backgroundColor: theme.palette.background.default,
+								border: `1px solid ${theme.palette.divider}`,
 								borderRadius: 1,
-								input: { color: "#fff" },
+								input: { color: theme.palette.text.primary },
 								"& .MuiOutlinedInput-root": {
 									"& fieldset": {
-										borderColor: "#fff",
+										borderColor: theme.palette.divider,
 									},
 									"&:hover fieldset": {
-										borderColor: "#fff",
+										borderColor: theme.palette.primary.main,
 									},
 									"&.Mui-focused fieldset": {
-										borderColor: "#fff",
+										borderColor: theme.palette.primary.main,
 									},
 								},
 							}}
@@ -133,21 +143,23 @@ const ContactPageComponent = () => {
 							type="email"
 							fullWidth
 							required
-							InputLabelProps={{ style: { color: "#fff" } }}
+							InputLabelProps={{
+								style: { color: theme.palette.text.secondary },
+							}}
 							sx={{
-								backgroundColor: "transparent",
-								border: "1px solid #fff",
+								backgroundColor: theme.palette.background.default,
+								border: `1px solid ${theme.palette.divider}`,
 								borderRadius: 1,
-								input: { color: "#fff" },
+								input: { color: theme.palette.text.primary },
 								"& .MuiOutlinedInput-root": {
 									"& fieldset": {
-										borderColor: "#fff",
+										borderColor: theme.palette.divider,
 									},
 									"&:hover fieldset": {
-										borderColor: "#fff",
+										borderColor: theme.palette.primary.main,
 									},
 									"&.Mui-focused fieldset": {
-										borderColor: "#fff",
+										borderColor: theme.palette.primary.main,
 									},
 								},
 							}}
@@ -161,21 +173,23 @@ const ContactPageComponent = () => {
 							rows={4}
 							fullWidth
 							required
-							InputLabelProps={{ style: { color: "#fff" } }}
+							InputLabelProps={{
+								style: { color: theme.palette.text.secondary },
+							}}
 							sx={{
-								backgroundColor: "transparent",
-								border: "1px solid #fff",
+								backgroundColor: theme.palette.background.default,
+								border: `1px solid ${theme.palette.divider}`,
 								borderRadius: 1,
-								textarea: { color: "#fff" },
+								textarea: { color: theme.palette.text.primary },
 								"& .MuiOutlinedInput-root": {
 									"& fieldset": {
-										borderColor: "#fff",
+										borderColor: theme.palette.divider,
 									},
 									"&:hover fieldset": {
-										borderColor: "#fff",
+										borderColor: theme.palette.primary.main,
 									},
 									"&.Mui-focused fieldset": {
-										borderColor: "#fff",
+										borderColor: theme.palette.primary.main,
 									},
 								},
 							}}
@@ -188,10 +202,15 @@ const ContactPageComponent = () => {
 							fullWidth
 							sx={{
 								fontSize: "1.2rem",
-								backgroundColor: "#fff",
-								color: "#124E66",
+								backgroundColor: theme.palette.primary.main,
+								color: theme.palette.primary.contrastText,
 								padding: "12px 24px",
-								"&:hover": { backgroundColor: "#e6e6e6" },
+								"&:hover": {
+									backgroundColor:
+										theme.palette.mode === "dark"
+											? theme.palette.primary.light
+											: theme.palette.primary.dark,
+								},
 							}}
 						>
 							Send

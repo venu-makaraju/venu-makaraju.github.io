@@ -16,8 +16,10 @@ import {
 import { Link } from "react-scroll";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
 
-const NavBarComponent = () => {
+const NavBarComponent = ({ mode, onToggleTheme }) => {
 	const theme = useTheme();
 	const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 	const [drawerOpen, setDrawerOpen] = useState(false);
@@ -36,7 +38,15 @@ const NavBarComponent = () => {
 	];
 
 	return (
-		<AppBar position="sticky" sx={{ backgroundColor: "#212A31" }}>
+		<AppBar
+			position="sticky"
+			elevation={4}
+			sx={{
+				backgroundColor: theme.palette.background.paper,
+				color: theme.palette.text.primary,
+				transition: "background-color 0.3s ease",
+			}}
+		>
 			<Toolbar
 				sx={{
 					display: "flex",
@@ -54,7 +64,7 @@ const NavBarComponent = () => {
 					spy={true}
 					offset={-70}
 					sx={{
-						color: "white",
+						color: theme.palette.text.primary,
 						fontSize: "1.5rem",
 						fontWeight: "bold",
 						cursor: "pointer",
@@ -70,6 +80,7 @@ const NavBarComponent = () => {
 						sx={{
 							display: "flex",
 							gap: "20px",
+							alignItems: "center",
 						}}
 					>
 						{navItems.map((section) => (
@@ -83,7 +94,7 @@ const NavBarComponent = () => {
 								offset={-70} // Adjust for sticky AppBar height
 								activeClass="active"
 								sx={{
-									color: "white",
+									color: theme.palette.text.primary,
 									fontSize: "1.5rem",
 									textTransform: "capitalize",
 								}}
@@ -91,17 +102,41 @@ const NavBarComponent = () => {
 								{section}
 							</Button>
 						))}
+						<IconButton
+							color="inherit"
+							onClick={onToggleTheme}
+							aria-label={`Switch to ${mode === "dark" ? "light" : "dark"} mode`}
+							sx={{ ml: 1 }}
+						>
+							{mode === "dark" ? <LightModeIcon /> : <DarkModeIcon />}
+						</IconButton>
 					</Box>
 				) : (
 					// Mobile Hamburger Menu
-					<IconButton
-						color="inherit"
-						edge="start"
-						onClick={toggleDrawer}
-						sx={{ display: { sm: "none" } }}
+					<Box
+						sx={{
+							display: "flex",
+							alignItems: "center",
+							gap: 1,
+						}}
 					>
-						<MenuIcon />
-					</IconButton>
+						<IconButton
+							color="inherit"
+							onClick={onToggleTheme}
+							aria-label={`Switch to ${mode === "dark" ? "light" : "dark"} mode`}
+						>
+							{mode === "dark" ? <LightModeIcon /> : <DarkModeIcon />}
+						</IconButton>
+						<IconButton
+							color="inherit"
+							edge="start"
+							onClick={toggleDrawer}
+							sx={{ display: { sm: "none" } }}
+							aria-label="Open navigation menu"
+						>
+							<MenuIcon />
+						</IconButton>
+					</Box>
 				)}
 			</Toolbar>
 
@@ -113,8 +148,8 @@ const NavBarComponent = () => {
 				sx={{
 					"& .MuiDrawer-paper": {
 						width: "100%",
-						backgroundColor: "#212A31",
-						color: "white",
+						backgroundColor: theme.palette.background.paper,
+						color: theme.palette.text.primary,
 						height: "100vh",
 						display: "flex",
 						flexDirection: "column",
@@ -130,7 +165,7 @@ const NavBarComponent = () => {
 						position: "absolute",
 						top: "20px",
 						right: "20px",
-						color: "white",
+						color: theme.palette.text.primary,
 					}}
 				>
 					<CloseIcon />
@@ -149,7 +184,7 @@ const NavBarComponent = () => {
 									activeClass="active"
 									onClick={toggleDrawer}
 									sx={{
-										color: "white",
+										color: theme.palette.text.primary,
 										width: "100%",
 										fontSize: "2rem",
 										textTransform: "capitalize",
