@@ -81,6 +81,9 @@ const ContactPageComponent = () => {
 	const templateId =
 		process.env.REACT_APP_EMAILJS_TEMPLATE_ID ||
 		process.env.VITE_EMAILJS_TEMPLATE_ID;
+	const autoreplyTemplateId =
+		process.env.REACT_APP_EMAILJS_TEMPLATE_AUTOREPLY ||
+		process.env.VITE_EMAILJS_TEMPLATE_AUTOREPLY;
 	const publicKey =
 		process.env.REACT_APP_EMAILJS_PUBLIC_KEY ||
 		process.env.VITE_EMAILJS_PUBLIC_KEY;
@@ -103,6 +106,12 @@ const ContactPageComponent = () => {
 			});
 			return;
 		}
+		console.log("Service ID:", serviceId);
+console.log("Template ID:", templateId);
+console.log("Auto-reply Template ID:", autoreplyTemplateId);
+console.log("Public Key:", publicKey);
+console.log("Form values:", formValues);
+
 
 		setIsSending(true);
 		try {
@@ -119,6 +128,26 @@ const ContactPageComponent = () => {
 				},
 				publicKey
 			);
+
+			if (autoreplyTemplateId) {
+				console.log("Auto-reply template ID:", autoreplyTemplateId);
+				try {
+				  const replyResult = await emailjs.send(
+					serviceId,
+					autoreplyTemplateId,
+					{
+					  name: formValues.name,
+					  email: formValues.email,
+					  subject: formValues.subject,
+					},
+					publicKey
+				  );
+				  console.log("Auto-reply sent:", replyResult.status, replyResult.text);
+				} catch (replyError) {
+				  console.error("Auto-reply email failed:", replyError);
+				}
+			  }
+			  
 
 			setFeedback({
 				type: "success",
