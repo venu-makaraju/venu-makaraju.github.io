@@ -36,17 +36,17 @@ const experienceData = [
 			"Integrated content management system (CMS) tools for efficient workflows."
 		]
 	},
-	{
-		type: "experience",
-		role: "Full-Stack Product Builder",
-		company: "AMC Ladder",
-		duration: "Jan 2024 - Present",
-		achievements: [
-			"Architected and launched `https://www.amcladder.com/`, a comprehensive AMC CAT preparation platform spanning responsive web and cross-platform mobile apps.",
-			"Drove the complete product lifecycle—from brand-aligned UI/UX design and React/React Native implementation through deployment to Android and iOS app stores.",
-			"Integrated secure payment gateway flows for tiered subscription plans, automating access provisioning and invoicing."
-		]
-	}
+	// {
+	// 	type: "experience",
+	// 	role: "Full-Stack Product Builder",
+	// 	company: "AMC Ladder",
+	// 	duration: "Jan 2024 - Present",
+	// 	achievements: [
+	// 		"Architected and launched `https://www.amcladder.com/`, a comprehensive AMC CAT preparation platform spanning responsive web and cross-platform mobile apps.",
+	// 		"Drove the complete product lifecycle—from brand-aligned UI/UX design and React/React Native implementation through deployment to Android and iOS app stores.",
+	// 		"Integrated secure payment gateway flows for tiered subscription plans, automating access provisioning and invoicing."
+	// 	]
+	// }
 ];
 
 const ExperienceComponent = () => {
