@@ -8,7 +8,7 @@ import {
 	Stack,
 } from "@mui/material";
 import { Link } from "react-scroll";
-import resume from "../assets/Venu_Makaraju_Resume.pdf";
+import resume from "../assets/Venu_Makaraju.pdf";
 import profilePic from "../assets/profile_pic.png";
 
 const LandingPageComponent = () => {
