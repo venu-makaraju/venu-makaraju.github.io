@@ -44,7 +44,7 @@ const ContactPageComponent = () => {
 		{
 			icon: faPhone,
 			label: "Phone",
-			value: "+91-8125757979",
+			value: "+91-8639191791",
 		},
 	];
 
